@@ -1,3 +1,6 @@
+using Microsoft.OpenApi.Extensions;
+using Swashbuckle.AspNetCore.Swagger;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,6 +20,15 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+// Save the Swagger JSON to a file
+var filePath = Path.Combine(app.Environment.ContentRootPath, "swagger.json");
+var swaggerProvider = app.Services.GetRequiredService<ISwaggerProvider>();
+using (var writer = new StreamWriter(filePath))
+{
+    var swaggerDoc = swaggerProvider.GetSwagger("v1");
+    swaggerDoc.SerializeAsJson(writer.BaseStream, new Microsoft.OpenApi.OpenApiSpecVersion());
 }
 
 app.UseHttpsRedirection();
