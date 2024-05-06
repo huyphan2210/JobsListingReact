@@ -1,20 +1,13 @@
 import { useEffect, useState } from "react";
+import { WeatherForecastService, WeatherForecast } from "./swagger/api/index";
 import "./App.css";
 
-interface Forecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
-
 function App() {
-  const [forecasts, setForecasts] = useState<Forecast[]>();
+  const [forecasts, setForecasts] = useState<WeatherForecast[]>();
 
   async function populateWeatherData() {
-    const response = await fetch("weatherforecast");
-    const data = await response.json();
-    setForecasts(data);
+    const response = await WeatherForecastService.getWeatherForecast();
+    setForecasts(response);
   }
 
   useEffect(() => {
@@ -44,8 +37,8 @@ function App() {
         </thead>
         <tbody>
           {forecasts.map((forecast) => (
-            <tr key={forecast.date}>
-              <td>{forecast.date}</td>
+            <tr key={String(forecast.date)}>
+              <td>{String(forecast.date)}</td>
               <td>{forecast.temperatureC}</td>
               <td>{forecast.temperatureF}</td>
               <td>{forecast.summary}</td>
