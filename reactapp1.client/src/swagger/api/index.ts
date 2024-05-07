@@ -114,7 +114,7 @@ export class WeatherForecastService {
    */
   static getWeatherForecast(options: IRequestOptions = {}): Promise<WeatherForecast[]> {
     return new Promise((resolve, reject) => {
-      let url = basePath + '/WeatherForecast';
+      let url = basePath + '/weather-forecast';
 
       const configs: IRequestConfig = getConfigs('get', 'application/json', url, options);
 

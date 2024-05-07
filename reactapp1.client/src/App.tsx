@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { WeatherForecastService, WeatherForecast } from "./swagger/api/index";
+import { WeatherForecast } from "./swagger/api/index";
 import "./App.css";
+import JobAPI from "./api/job-api";
 
 function App() {
   const [forecasts, setForecasts] = useState<WeatherForecast[]>();
-
+  const jobAPI = new JobAPI();
   async function populateWeatherData() {
-    const response = await WeatherForecastService.getWeatherForecast();
-    setForecasts(response);
+    const data = await jobAPI.populateWeatherData();
+    setForecasts(data);
   }
 
   useEffect(() => {
