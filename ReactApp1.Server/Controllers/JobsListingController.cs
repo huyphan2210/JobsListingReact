@@ -18,7 +18,7 @@ namespace ReactApp1.Server.Controllers
             _jobListingService = jobListingService;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "GetJobs")]
         public List<Job>? Get()
         {
             return _jobListingService.GetJobs();

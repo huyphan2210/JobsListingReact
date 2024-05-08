@@ -1,5 +1,4 @@
 /** Generate by swagger-axios-codegen */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 /* eslint-disable */
 
@@ -108,6 +107,21 @@ export class PagedResultDto<T = any> implements IPagedResult<T> {
 // customer definition
 // empty
 
+export class JobsListingService {
+  /**
+   *
+   */
+  static getJobs(options: IRequestOptions = {}): Promise<Job[]> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/jobs';
+
+      const configs: IRequestConfig = getConfigs('get', 'application/json', url, options);
+
+      axios(configs, resolve, reject);
+    });
+  }
+}
+
 export class WeatherForecastService {
   /**
    *
@@ -141,6 +155,44 @@ export interface DateOnly {
 
   /**  */
   dayNumber?: number;
+}
+
+export interface Job {
+  /**  */
+  id?: number;
+
+  /**  */
+  company?: string;
+
+  /**  */
+  new?: boolean;
+
+  /**  */
+  featured?: string;
+
+  /**  */
+  position?: string;
+
+  /**  */
+  role?: string;
+
+  /**  */
+  level?: string;
+
+  /**  */
+  postedAt?: string;
+
+  /**  */
+  contract?: string;
+
+  /**  */
+  location?: string;
+
+  /**  */
+  languages?: string[];
+
+  /**  */
+  tools?: string[];
 }
 
 export interface WeatherForecast {
