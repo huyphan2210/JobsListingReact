@@ -15,7 +15,6 @@ export default class JobAPI {
   }
 
   getJobs() {
-    // Now you should be able to call the static method getWeatherForecast
     return JobsListingService.getJobs();
   }
 }
