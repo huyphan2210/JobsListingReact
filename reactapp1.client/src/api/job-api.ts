@@ -3,7 +3,7 @@ import { JobsListingService, serviceOptions } from "../swagger/api";
 
 export default class JobAPI {
   axiosInstance: AxiosInstance = axios.create({
-    baseURL: "https://localhost:5173",
+    baseURL: import.meta.env.PROD ? import.meta.env.VITE_APP_API_URL : "",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
