@@ -6,7 +6,6 @@ using ReactApp1.Server.Services;
 
 namespace ReactApp1.Server.Controllers
 {
-    
     [ApiController]
     [Route("jobs")]
     public class JobsListingController : ControllerBase

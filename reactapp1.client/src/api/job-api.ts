@@ -14,8 +14,8 @@ export default class JobAPI {
     serviceOptions.axios = this.axiosInstance;
   }
 
-  async getJobs() {
+  getJobs() {
     // Now you should be able to call the static method getWeatherForecast
-    return await JobsListingService.getJobs();
+    return JobsListingService.getJobs();
   }
 }
