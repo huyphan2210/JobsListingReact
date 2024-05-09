@@ -16,6 +16,7 @@
     "dotenv": "^16.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sass": "^1.77.0",
     "swagger-axios-codegen": "^0.16.14"
   },
   "devDependencies": {
