@@ -122,41 +122,6 @@ export class JobsListingService {
   }
 }
 
-export class WeatherForecastService {
-  /**
-   *
-   */
-  static getWeatherForecast(options: IRequestOptions = {}): Promise<WeatherForecast[]> {
-    return new Promise((resolve, reject) => {
-      let url = basePath + '/weather-forecast';
-
-      const configs: IRequestConfig = getConfigs('get', 'application/json', url, options);
-
-      axios(configs, resolve, reject);
-    });
-  }
-}
-
-export interface DateOnly {
-  /**  */
-  year?: number;
-
-  /**  */
-  month?: number;
-
-  /**  */
-  day?: number;
-
-  /**  */
-  dayOfWeek?: DayOfWeek;
-
-  /**  */
-  dayOfYear?: number;
-
-  /**  */
-  dayNumber?: number;
-}
-
 export interface Job {
   /**  */
   id?: number;
@@ -194,19 +159,3 @@ export interface Job {
   /**  */
   tools?: string[];
 }
-
-export interface WeatherForecast {
-  /**  */
-  date?: DateOnly;
-
-  /**  */
-  temperatureC?: number;
-
-  /**  */
-  temperatureF?: number;
-
-  /**  */
-  summary?: string;
-}
-
-export type DayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
