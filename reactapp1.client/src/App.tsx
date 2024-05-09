@@ -11,7 +11,13 @@ function App() {
     jobAPI
       .getJobs()
       .then((data) => setJobs(data))
-      .catch(() => alert("Something's wrong"));
+      .catch((error) => {
+        if (error instanceof Error) {
+          alert(error.message);
+        } else {
+          alert("Something's wrong");
+        }
+      });
   }, []);
   return (
     <main>
