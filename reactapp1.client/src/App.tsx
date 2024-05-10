@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Job } from "./swagger/api";
 import JobAPI from "./api/job-api";
 import JobInfo from "./components/Job/JobInfo";
+import "./App.scss";
 
 const jobAPI = new JobAPI();
 
@@ -20,11 +21,17 @@ function App() {
       });
   }, []);
   return (
-    <main>
-      {jobs.map((job, index) => (
-        <JobInfo key={index} />
-      ))}
-    </main>
+    <>
+      <header />
+      <section className="filter"></section>
+      <main>
+        <section className="jobs-list">
+          {jobs.map((job, index) => (
+            <JobInfo key={index} />
+          ))}
+        </section>
+      </main>
+    </>
   );
 }
 

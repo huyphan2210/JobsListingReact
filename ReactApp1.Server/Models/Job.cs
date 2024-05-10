@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public string Company { get; set; } = string.Empty;
+        public string Logo { get; set; } = string.Empty;
         public bool New { get; set; }
         public string Featured { get; set; } = string.Empty;
         public string Position { get; set; } = string.Empty;
