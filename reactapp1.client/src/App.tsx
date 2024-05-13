@@ -26,9 +26,7 @@ function App() {
       <section className="filter"></section>
       <main>
         <section className="jobs-list">
-          {jobs.map((job, index) => (
-            <JobInfo key={index} />
-          ))}
+          {jobs.map((job, index) => <JobInfo key={index} job={job} />)}
         </section>
       </main>
     </>
