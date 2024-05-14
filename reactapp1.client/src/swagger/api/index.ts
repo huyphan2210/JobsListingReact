@@ -1,5 +1,4 @@
 /** Generate by swagger-axios-codegen */
-// @ts-nocheck
 /* eslint-disable */
 
 /** Generate by swagger-axios-codegen */
@@ -136,7 +135,7 @@ export interface Job {
   new?: boolean;
 
   /**  */
-  featured?: string;
+  featured?: boolean;
 
   /**  */
   position?: string;

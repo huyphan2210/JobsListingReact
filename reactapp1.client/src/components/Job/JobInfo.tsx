@@ -21,11 +21,25 @@ const JobInfo: FC<JobInfoProps> = ({ job }) => {
     tools,
   } = job;
   return (
-    <section className="job-info">
+    <section className={featured ? "job-info featured" : "job-info"}>
       <div className="job-info__text">
         <img src={logo} loading="lazy" alt={company} />
+        <div className="job-info__text__about">
+          <h3 className="job-info__text__about__company">{company}</h3>
+          <div className="job-info__text__about__status">
+            {job.new && <span className="status new">New!</span>}
+            {featured && <span className="status featured">Featured</span>}
+          </div>
+        </div>
+        <h3 className="job-info__text__position">{position}</h3>
+        <div className="job-info__text__small-details">
+          {postedAt} - {contract} - {location}
+        </div>
       </div>
-      <div className="job-info__tools"></div>
+      <div className="job-info__requirements">
+        {role} - {level} - {languages?.map((language) => language)} -{" "}
+        {tools?.map((tool) => tool)}
+      </div>
     </section>
   );
 };

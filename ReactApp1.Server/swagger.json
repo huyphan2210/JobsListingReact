@@ -77,7 +77,7 @@
           "type": "boolean"
         },
         "featured": {
-          "type": "string"
+          "type": "boolean"
         },
         "position": {
           "type": "string"

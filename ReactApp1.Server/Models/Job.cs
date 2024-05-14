@@ -6,7 +6,7 @@
         public string Company { get; set; } = string.Empty;
         public string Logo { get; set; } = string.Empty;
         public bool New { get; set; }
-        public string Featured { get; set; } = string.Empty;
+        public bool Featured { get; set; }
         public string Position { get; set; } = string.Empty;
         public string Role { get; set; } = string.Empty;
         public string Level { get; set; } = string.Empty;
