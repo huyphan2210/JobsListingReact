@@ -1,0 +1,13 @@
+.job-tag {
+  padding: 1rem;
+  border-radius: var(--radius);
+  color: var(--dark-cyan);
+  font-weight: 700;
+  background-color: var(--bg-color);
+  transition: var(--trans-time);
+
+  &:hover {
+    color: white;
+    background-color: var(--dark-cyan);
+  }
+}
