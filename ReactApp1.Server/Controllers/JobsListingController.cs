@@ -18,12 +18,12 @@ namespace ReactApp1.Server.Controllers
         }
 
         [HttpGet(Name = "GetJobs")]
-        public List<Job>? Get()
+        public List<Job>? Get([FromQuery] List<string>? jobTags = null)
         {
-            return _jobListingService.GetJobs();
+            return _jobListingService.GetJobs(jobTags);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetJobsWithFilter")]
         public string Get(int id)
         {
             return "value";

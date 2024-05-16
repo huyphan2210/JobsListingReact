@@ -110,11 +110,18 @@ export class JobsListingService {
   /**
    *
    */
-  static getJobs(options: IRequestOptions = {}): Promise<Job[]> {
+  static getJobs(
+    params: {
+      /**  */
+      jobTags?: string[];
+    } = {} as any,
+    options: IRequestOptions = {}
+  ): Promise<Job[]> {
     return new Promise((resolve, reject) => {
       let url = basePath + '/jobs';
 
       const configs: IRequestConfig = getConfigs('get', 'application/json', url, options);
+      configs.params = { jobTags: params['jobTags'] };
 
       axios(configs, resolve, reject);
     });

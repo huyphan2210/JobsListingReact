@@ -4,6 +4,6 @@ namespace ReactApp1.Server.Services
 {
     public interface IJobsListingService
     {
-        public List<Job>? GetJobs();
+        public List<Job>? GetJobs(List<string>? jobTags = null);
     }
 }

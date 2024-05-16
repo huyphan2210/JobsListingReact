@@ -14,7 +14,7 @@ export default class JobAPI {
     serviceOptions.axios = this.axiosInstance;
   }
 
-  getJobs() {
-    return JobsListingService.getJobs();
+  getJobs(jobTags?: string[]) {
+    return JobsListingService.getJobs({ jobTags });
   }
 }

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { observer } from "mobx-react";
 import "./JobInfo.scss";
 import { Job } from "../../swagger/api";
 import JobTag from "./JobTag/JobTag";
@@ -53,4 +54,5 @@ const JobInfo: FC<JobInfoProps> = ({ job }) => {
   );
 };
 
-export default JobInfo;
+const ObservedJobInfo = observer(JobInfo);
+export default ObservedJobInfo;
