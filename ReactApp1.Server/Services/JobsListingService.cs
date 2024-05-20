@@ -14,11 +14,18 @@ namespace ReactApp1.Server.Services
 
                 if (jobTags != null && jobTags.Count > 0 && jobs != null)
                 {
-                    jobs = jobs.Where(job => jobTags.Contains(job.Role) || jobTags.Contains(job.Level)).ToList();
+                    jobs = FilterJobs(jobs, jobTags);
                 }
 
                 return jobs;
             }
+        }
+
+        private List<Job> FilterJobs(List<Job> jobs, List<string> jobTags)
+        {
+            return jobs.Where(job => jobTags.Contains(job.Role) || jobTags.Contains(job.Level) ||
+                                     jobTags.Intersect(job.Languages).Any() ||
+                                     jobTags.Intersect(job.Tools).Any()).ToList();
         }
     }
 }
