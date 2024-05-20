@@ -16,13 +16,13 @@ namespace ReactApp1.Server.Controllers
         }
 
         [HttpGet(Name = "GetJobs")]
-        public List<Job>? Get()
+        public List<Job>? GetJobs()
         {
             return _jobListingService.GetJobs(null);
         }
 
         [HttpPost(Name = "GetJobsWithFilter")]
-        public List<Job>? Post([FromBody] List<string> jobTags)
+        public List<Job>? GetJobsWithFilter([FromBody] List<string> jobTags)
         {
             return _jobListingService.GetJobs(jobTags);
         }
