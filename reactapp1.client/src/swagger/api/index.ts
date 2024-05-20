@@ -110,18 +110,33 @@ export class JobsListingService {
   /**
    *
    */
-  static getJobs(
+  static getJobs(options: IRequestOptions = {}): Promise<Job[]> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/jobs';
+
+      const configs: IRequestConfig = getConfigs('get', 'application/json', url, options);
+
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   *
+   */
+  static getJobsWithFilter(
     params: {
       /**  */
-      jobTags?: string[];
+      body?: any | null[];
     } = {} as any,
     options: IRequestOptions = {}
   ): Promise<Job[]> {
     return new Promise((resolve, reject) => {
       let url = basePath + '/jobs';
 
-      const configs: IRequestConfig = getConfigs('get', 'application/json', url, options);
-      configs.params = { jobTags: params['jobTags'] };
+      const configs: IRequestConfig = getConfigs('post', 'application/json', url, options);
+
+      let data = params['body'];
+
+      configs.data = data;
 
       axios(configs, resolve, reject);
     });

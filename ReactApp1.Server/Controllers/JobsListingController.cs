@@ -2,8 +2,6 @@
 using ReactApp1.Server.Models;
 using ReactApp1.Server.Services;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace ReactApp1.Server.Controllers
 {
     [ApiController]
@@ -18,15 +16,15 @@ namespace ReactApp1.Server.Controllers
         }
 
         [HttpGet(Name = "GetJobs")]
-        public List<Job>? Get([FromQuery] List<string> jobTags)
+        public List<Job>? Get()
         {
-            return _jobListingService.GetJobs(jobTags);
+            return _jobListingService.GetJobs(null);
         }
 
-        [HttpGet("GetJobsWithFilter")]
-        public string Get(int id)
+        [HttpPost(Name = "GetJobsWithFilter")]
+        public List<Job>? Post([FromBody] List<string> jobTags)
         {
-            return "value";
+            return _jobListingService.GetJobs(jobTags);
         }
     }
 }

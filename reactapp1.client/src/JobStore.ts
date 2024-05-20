@@ -27,12 +27,16 @@ export default class JobStore {
   }
 
   getJobsWithFilter() {
-    this.jobApi.getJobs(this.filter).then((jobs) => {
+    this.jobApi.getJobsWithFilter(this.filter).then((jobs) => {
       this.jobs = jobs;
     });
   }
 
   addTagToFilter(tag: string) {
+    if (this.filter.indexOf(tag) > -1) {
+      return;
+    }
+    
     this.filter = [...this.filter, tag];
     this.getJobsWithFilter();
   }
