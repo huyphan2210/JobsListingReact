@@ -1,13 +1,36 @@
 .job-tag {
-  padding: 1rem;
-  border-radius: var(--radius);
-  color: var(--dark-cyan);
-  font-weight: 700;
-  background-color: var(--bg-color);
-  transition: var(--trans-time);
+  display: flex;
+  align-items: center;
 
-  &:hover {
-    color: white;
+  &.filtered {
+    button {
+      border-radius: var(--radius) 0 0 var(--radius);
+    }
+  }
+
+  button {
+    padding: 1rem;
+    border-radius: var(--radius);
+    color: var(--dark-cyan);
+    font-weight: 700;
+    background-color: var(--bg-color);
+    transition: var(--trans-time);
+
+    &:hover {
+      color: white;
+      background-color: var(--dark-cyan);
+    }
+  }
+
+  img {
+    padding: 0.8rem;
+    width: 1rem;
+    aspect-ratio: 1rem;
     background-color: var(--dark-cyan);
+    border-radius: 0 var(--radius) var(--radius) 0;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

@@ -36,7 +36,7 @@ export default class JobStore {
     if (this.filter.indexOf(tag) > -1) {
       return;
     }
-    
+
     this.filter = [...this.filter, tag];
     this.getJobsWithFilter();
   }
@@ -44,8 +44,9 @@ export default class JobStore {
   removeTagFromFilter(tag: string) {
     const index = this.filter.indexOf(tag);
     if (index > -1) {
-      this.filter.slice(index, 1);
+      this.filter = this.filter.filter((filterTag) => filterTag !== tag);
     }
+    this.getJobsWithFilter();
   }
 }
 

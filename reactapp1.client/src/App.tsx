@@ -10,13 +10,16 @@ function App() {
   useEffect(() => {
     jobStore.getJobs();
   }, []);
-  
+
   return (
     <>
       <header />
-      <section className="filter">
+      <section
+        className="filter"
+        style={{ opacity: jobStore.filter.length > 0 ? "1" : "0" }}
+      >
         {jobStore.filter.map((tag, index) => (
-          <JobTag key={index} tagContent={tag} />
+          <JobTag key={index} isFromFilter tagContent={tag} />
         ))}
       </section>
       <main>
