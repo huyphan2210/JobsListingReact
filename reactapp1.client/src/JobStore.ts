@@ -6,11 +6,13 @@ import JobAPI from "./api/job-api";
 export default class JobStore {
   constructor() {
     makeAutoObservable(this, {
+      jobs: observable,
       filter: observable,
       getJobs: action,
       getJobsWithFilter: action,
       addTagToFilter: action,
       removeTagFromFilter: action,
+      resetFilter: action,
     });
   }
 
@@ -47,6 +49,11 @@ export default class JobStore {
       this.filter = this.filter.filter((filterTag) => filterTag !== tag);
     }
     this.getJobsWithFilter();
+  }
+
+  resetFilter() {
+    this.filter = [];
+    this.getJobs();
   }
 }
 

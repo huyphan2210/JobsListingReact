@@ -18,9 +18,18 @@ function App() {
         className="filter"
         style={{ opacity: jobStore.filter.length > 0 ? "1" : "0" }}
       >
-        {jobStore.filter.map((tag, index) => (
-          <JobTag key={index} isFromFilter tagContent={tag} />
-        ))}
+        <div className="filter__tags">
+          {jobStore.filter.map((tag, index) => (
+            <JobTag key={index} isFromFilter tagContent={tag} />
+          ))}
+        </div>
+        <button
+          className="filter__clear-button"
+          type="button"
+          onClick={() => jobStore.resetFilter()}
+        >
+          Clear
+        </button>
       </section>
       <main>
         <section className="jobs-list">

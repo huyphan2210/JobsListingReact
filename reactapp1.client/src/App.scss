@@ -9,8 +9,8 @@ header {
 
 .filter {
   display: flex;
+  justify-content: space-between;
   gap: var(--gap);
-  overflow-x: auto;
   position: absolute;
   background-color: white;
   top: min(25vh, 30rem);
@@ -20,6 +20,24 @@ header {
   width: calc(100% - 6rem);
   transition: var(--trans-time);
   border-radius: var(--radius);
+
+  &__tags {
+    display: flex;
+    gap: var(--gap);
+    overflow-x: auto;
+  }
+
+  &__clear-button {
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: transparent;
+    color: var(--dark-cyan);
+    font-weight: 700;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 main {

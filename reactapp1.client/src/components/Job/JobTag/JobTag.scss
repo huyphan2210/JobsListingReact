@@ -16,6 +16,7 @@
     background-color: var(--bg-color);
     transition: var(--trans-time);
     line-height: 1rem;
+    font-size: 1rem;
 
     &:hover {
       color: white;
@@ -29,9 +30,11 @@
     aspect-ratio: 1rem;
     background-color: var(--dark-cyan);
     border-radius: 0 var(--radius) var(--radius) 0;
+    transition: var(--trans-time);
 
     &:hover {
       cursor: pointer;
+      background-color: var(--very-dark-grayish-cyan);
     }
   }
 }

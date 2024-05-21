@@ -13,7 +13,7 @@ const JobTag: FC<JobTagProps> = ({ tagContent, isFromFilter }) => {
   const jobStore = useJobStore();
   return (
     <span className={isFromFilter ? "job-tag filtered" : "job-tag"}>
-      <button onClick={() => tagContent && jobStore.addTagToFilter(tagContent)}>
+      <button type="button" onClick={() => tagContent && jobStore.addTagToFilter(tagContent)}>
         {tagContent}
       </button>
       {isFromFilter && (
