@@ -15,6 +15,7 @@
     font-weight: 700;
     background-color: var(--bg-color);
     transition: var(--trans-time);
+    line-height: 1rem;
 
     &:hover {
       color: white;
@@ -23,7 +24,7 @@
   }
 
   img {
-    padding: 0.8rem;
+    padding: 1rem;
     width: 1rem;
     aspect-ratio: 1rem;
     background-color: var(--dark-cyan);
