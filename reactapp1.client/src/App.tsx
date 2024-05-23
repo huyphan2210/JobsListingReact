@@ -4,6 +4,7 @@ import "./App.scss";
 import { observer } from "mobx-react";
 import { useJobStore } from "./JobStore";
 import JobTag from "./components/Job/JobTag/JobTag";
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 
 function App() {
   const jobStore = useJobStore();
@@ -38,6 +39,7 @@ function App() {
           ))}
         </section>
       </main>
+      {jobStore.isLoading && <LoadingScreen />}
     </>
   );
 }

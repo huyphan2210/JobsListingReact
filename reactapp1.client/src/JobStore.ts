@@ -8,6 +8,7 @@ export default class JobStore {
     makeAutoObservable(this, {
       jobs: observable,
       filter: observable,
+      isLoading: observable,
       getJobs: action,
       getJobsWithFilter: action,
       addTagToFilter: action,
@@ -22,16 +23,26 @@ export default class JobStore {
 
   jobApi = new JobAPI();
 
+  isLoading = false;
+
   getJobs() {
-    this.jobApi.getJobs().then((jobs) => {
-      this.jobs = jobs;
-    });
+    this.isLoading = true;
+    this.jobApi
+      .getJobs()
+      .then((jobs) => {
+        this.jobs = jobs;
+      })
+      .finally(() => (this.isLoading = false));
   }
 
   getJobsWithFilter() {
-    this.jobApi.getJobsWithFilter(this.filter).then((jobs) => {
-      this.jobs = jobs;
-    });
+    this.isLoading = true;
+    this.jobApi
+      .getJobsWithFilter(this.filter)
+      .then((jobs) => {
+        this.jobs = jobs;
+      })
+      .finally(() => (this.isLoading = false));
   }
 
   addTagToFilter(tag: string) {
