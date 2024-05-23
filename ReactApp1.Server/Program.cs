@@ -20,7 +20,7 @@ app.UseStaticFiles();
 
 app.UseCors(options =>
 {
-    options.WithOrigins("https://jobs-listing-huy-phan.netlify.app/");
+    options.WithOrigins("https://jobs-listing-huy-phan.netlify.app");
     options.AllowAnyMethod();
     options.AllowAnyHeader();
 });
